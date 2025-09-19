@@ -59,6 +59,7 @@ in {
 
       system = {
         defaults = enabled;
+        fonts = enabled;
         nix.flakes = enabled;
         shell.zsh = enabled;
         stylix = enabled;

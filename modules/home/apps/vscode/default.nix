@@ -28,6 +28,30 @@ in {
           enableUpdateCheck = false;
           enableExtensionUpdateCheck = false;
 
+          userSettings = {
+            "telemetry.telemetryLevel" = "off";
+            "editor.inlineSuggest.enabled" = true;
+            "editor.rulers" = [99];
+            "git.confirmSync" = false;
+            "editor.minimap.enabled" = false;
+            "remote.SSH.remotePlatform" = {
+              "fiddlebender" = "linux";
+            };
+            "terminal.integrated.scrollback" = 100000;
+            "editor.fontLigatures" = true;
+            "workbench.startupEditor" = "none";
+            "terminal.integrated.allowedLinkSchemes" = [
+              "file"
+              "http"
+              "https"
+              "mailto"
+              "vscode"
+              "vscode-insiders"
+              "docker-desktop"
+            ];
+            "editor.fontFamily" = "'FiraMono Nerd Font', 'Fira Code', monospace";
+          };
+
           extensions =
             (with pkgs.unstable.vscode-extensions; [
               ms-vscode-remote.remote-ssh
