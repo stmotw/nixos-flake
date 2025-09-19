@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +38,7 @@
 
   outputs = {
     nixpkgs,
+    nix-darwin,
     self,
     ...
   } @ inputs: let
@@ -47,7 +53,7 @@
     hosts = {
       arvad = "x86_64-linux";
       fiddlebender = "aarch64-linux";
-      # work-mac = "aarch64-darwin";
+      work-mac = "aarch64-darwin";
     };
 
     mkHostConfigurations = {
@@ -57,7 +63,7 @@
       lib.mapAttrs (hostname: system:
         systemBuilder {
           inherit system;
-          specialArgs = {inherit inputs hostname sec;};
+          specialArgs = {inherit inputs lib hostname sec;};
           modules = [./hosts/${hostname}/configuration.nix];
         })
       (lib.filterAttrs (_: predicate) hosts);
@@ -69,7 +75,7 @@
 
     darwinConfigurations = mkHostConfigurations {
       predicate = lib.hasSuffix "darwin";
-      systemBuilder = lib.darwinSystem;
+      systemBuilder = nix-darwin.lib.darwinSystem;
     };
   };
 }

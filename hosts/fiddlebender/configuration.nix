@@ -12,9 +12,9 @@ in {
     ./disko.nix
     ./hardware-configuration.nix
     ../../overlays/unstable
-    ../../modules/home/import.nix
-    ../../modules/nixos/import.nix
     ../../modules/shared/import.nix
+    ../../modules/nixos/import.nix
+    ../../modules/home/import.nix
   ];
 
   config = {

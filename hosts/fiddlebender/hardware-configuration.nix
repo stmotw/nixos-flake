@@ -29,7 +29,7 @@
         efiSysMountPoint = "/boot";
       };
     };
-  
+
     kernelModules = [];
     extraModulePackages = [];
   };
