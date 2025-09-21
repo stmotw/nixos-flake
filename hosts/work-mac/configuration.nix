@@ -68,7 +68,6 @@ in {
       system = {
         defaults = enabled;
         fonts = enabled;
-        nix.flakes = enabled;
         shell.zsh = enabled;
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
