@@ -24,18 +24,6 @@ in {
     # TODO: split into modules
     systemd.targets.multi-user.enable = true;
 
-    users = {
-      mutableUsers = false;
-      users.${sec.users.me.username} = {
-        isNormalUser = true;
-        extraGroups = [
-          "networkmanager"
-          "wheel"
-        ];
-        openssh.authorizedKeys.keyFiles = [inputs.ssh-keys.outPath];
-      };
-    };
-
     # Enable passwordless sudo.
     security.sudo.extraRules = [
       {
@@ -48,15 +36,6 @@ in {
         ];
       }
     ];
-
-    # Enable the OpenSSH daemon.
-    services.openssh = {
-      enable = true;
-      settings = {
-        PermitRootLogin = "no";
-        PasswordAuthentication = false;
-      };
-    };
 
     # Disable autologin.
     services.getty.autologinUser = null;
@@ -100,6 +79,7 @@ in {
 
       system = {
         nix.flakes = enabled;
+        services.openssh = enabled;
         shell.zsh = enabled;
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
