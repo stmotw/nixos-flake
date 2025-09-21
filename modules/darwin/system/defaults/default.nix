@@ -16,14 +16,24 @@ in {
         autohide-delay = 0.24;
         autohide-time-modifier = 0.5;
 
-        largesize = 24;
+        largesize = 48;
         mineffect = "scale";
         minimize-to-application = true;
-        # persistent-apps = [];
+        mru-spaces = false;
+        persistent-apps = [
+          # TODO add options
+          "/Applications/Notion.app"
+          "/Applications/Microsoft Edge.app"
+          "/Applications/Slack.app"
+          # TODO link kitty from nixos
+          # (lib.mkIf config.mine.home-manager.apps.kitty.enable "/Applications/kitty.app")
+          # TODO add vscode from nixos
+          "/Applications/Telegram.app"
+        ];
 
         orientation = "right";
         showhidden = true;
-        tilesize = 48;
+        tilesize = 96;
       };
 
       finder = {
@@ -43,7 +53,6 @@ in {
         ShowDate = 1;
         ShowDayOfMonth = true;
         ShowDayOfWeek = true;
-        ShowSeconds = true;
       };
 
       NSGlobalDomain = {
