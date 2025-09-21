@@ -72,6 +72,7 @@ in {
       system = {
         defaults = enabled;
         fonts = enabled;
+        security.touchsudo = enabled;
         shell.zsh = enabled;
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
