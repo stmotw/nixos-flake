@@ -65,6 +65,10 @@ in {
         homebrew = enabled;
       };
 
+      services = {
+        docker = enabled;
+      };
+
       system = {
         defaults = enabled;
         fonts = enabled;
