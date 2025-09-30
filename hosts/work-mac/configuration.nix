@@ -41,9 +41,15 @@ in {
         };
 
         cli-tools = {
+          az = enabled;
+          commitizen = enabled;
+          cruft = enabled;
           eza = enabled;
           git = enabled;
+          ruff = enabled;
           rust = enabled;
+          uv = enabled;
+          zig = enabled;
           zoxide = enabled;
         };
 
