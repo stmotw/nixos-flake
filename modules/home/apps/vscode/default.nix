@@ -29,17 +29,21 @@ in {
           enableExtensionUpdateCheck = false;
 
           userSettings = {
-            "telemetry.telemetryLevel" = "off";
+            "diffEditor.ignoreTrimWhitespace" = false;
+            "diffEditor.renderSideBySide" = true;
             "editor.inlineSuggest.enabled" = true;
-            "editor.rulers" = [99];
-            "git.confirmSync" = false;
+            "editor.fontFamily" = "'FiraMono Nerd Font', 'Fira Code', monospace";
+            "editor.fontLigatures" = true;
             "editor.minimap.enabled" = false;
+            "editor.rulers" = [99];
+            "git.blame.editorDecoration.enabled" = true;
+            "git.blame.statusBarItem.enabled" = false;
+            "git.confirmSync" = false;
+            "git.openRepositoryInParentFolders" = "never";
             "remote.SSH.remotePlatform" = {
               "fiddlebender" = "linux";
             };
-            "terminal.integrated.scrollback" = 100000;
-            "editor.fontLigatures" = true;
-            "workbench.startupEditor" = "none";
+            "telemetry.telemetryLevel" = "off";
             "terminal.integrated.allowedLinkSchemes" = [
               "file"
               "http"
@@ -49,7 +53,8 @@ in {
               "vscode-insiders"
               "docker-desktop"
             ];
-            "editor.fontFamily" = "'FiraMono Nerd Font', 'Fira Code', monospace";
+            "terminal.integrated.scrollback" = 100000;
+            "workbench.startupEditor" = "none";
           };
 
           extensions =
