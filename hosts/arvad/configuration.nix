@@ -52,6 +52,7 @@ in {
         claude-code = enabled;
         direnv = enabled;
         just = enabled;
+        make = enabled;
       };
 
       services = {
@@ -66,8 +67,6 @@ in {
         shell.zsh = enabled;
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
-        openssl = enabled;
-        pkgconfig = enabled;
         utils = enabled // {dev = true;};
       };
 
