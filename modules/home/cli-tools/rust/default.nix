@@ -14,7 +14,12 @@ in {
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {
       home.packages = with pkgs; [
-        rust-bin.stable.latest.default
+        (rust-bin.stable.latest.default.override {
+          extensions = [
+            "rust-src"
+            "rust-analyzer"
+          ];
+        })
       ];
     };
   };
