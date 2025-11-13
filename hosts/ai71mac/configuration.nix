@@ -17,16 +17,16 @@ in {
   config = {
     system = {
       stateVersion = 6;
-      primaryUser = "${sec.users.work.username}";
+      primaryUser = "${sec.users.ai71.username}";
     };
     nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin";
 
     mine = {
       user =
         enabled
-        // sec.users.work
+        // sec.users.ai71
         // {
-          homeDir = "/Users/${sec.users.work.username}";
+          homeDir = "/Users/${sec.users.ai71.username}";
           home-manager = enabled;
           shell = {
             package = pkgs.zsh;
@@ -59,7 +59,6 @@ in {
       };
 
       apps = {
-        ollama = enabled;
         pgadmin = enabled;
       };
 
@@ -83,6 +82,7 @@ in {
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
         utils = enabled // {dev = true;};
+        yubikey = enabled;
       };
     };
   };

@@ -332,7 +332,7 @@
     "ssh-keys": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-M6MpCdB8Ruow1d21a2JrmVWF9q8vypSshvUVsEIh5jA=",
+        "narHash": "sha256-FJmmNYyK603RXY20jT+XMwU5PEKeJDkBIBT6oKp7DpU=",
         "type": "file",
         "url": "https://github.com/stmotw.keys"
       },

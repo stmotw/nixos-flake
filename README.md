@@ -8,7 +8,7 @@ My Nix flake ❄
 ├── hosts/
 │   ├── arvad/        # WSL nixos
 │   ├── fiddlebender/ # Oracle Cloud VM
-│   └── work-mac/     # 2024 11 MacBook Pro M4
+│   └── ai71mac/      # 2024 11 MacBook Pro M4
 ├── lib/              # custom lib functions
 ├── modules/
 │   ├── darwin/       # darwin configurations

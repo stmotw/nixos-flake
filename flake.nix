@@ -58,7 +58,7 @@
     hosts = {
       arvad = "x86_64-linux";
       fiddlebender = "aarch64-linux";
-      work-mac = "aarch64-darwin";
+      ai71mac = "aarch64-darwin";
     };
 
     mkHostConfigurations = {

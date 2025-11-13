@@ -13,7 +13,7 @@ in {
       name = "${user.username}";
       home = "/Users/${user.username}";
       isHidden = false;
-      uid = 502;
+      uid = 503;
       openssh.authorizedKeys.keyFiles = [inputs.ssh-keys.outPath];
       shell = user.shell.package;
     };
