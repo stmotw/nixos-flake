@@ -68,6 +68,7 @@ in {
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
         utils = enabled // {dev = true;};
+        yubikey = enabled // { autoAttach = sec.wsl.yubikey.busid; };
       };
 
       windows = {

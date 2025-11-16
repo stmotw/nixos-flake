@@ -2,6 +2,8 @@
 
 How to setup NixOS on different environments.
 
+---
+
 ## Initial Setup
 
 ### Oracle Cloud VM Setup
@@ -65,7 +67,17 @@ Proceed? ([Y]es/[n]o/[e]xplain):
 
 Select `no` to install vanilla nix. Otherwise you'll need to add `nix.enable = false;` in your flake, see prerequisites link.
 
+---
+
 ## Updates
+
+### Updating the flake
+
+regenerate `flake.lock`:
+
+```bash
+nix flake update
+```
 
 ### Update Oracle Cloud VM
 
@@ -90,7 +102,7 @@ nixos-rebuild list-generations
 From MacOS console:
 
 ```bash
-sudo darwin-rebuild switch --flake .#ai71mac
+sudo darwin-rebuild switch --flake .#work-mac
 sudo darwin-rebuild --list-generations
 ```
 
@@ -101,3 +113,15 @@ nix-collect-garbage --delete-old
 sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 1d
 nix-env --delete-generations 1d
 ```
+
+---
+
+## Yubikey
+
+### Managing keys on Windows
+
+[gpg4win](https://www.gpg4win.org/)
+
+### Passing keys to WSL
+
+<https://lgug2z.com/articles/yubikey-passthrough-on-wsl2-with-full-fido2-support/>
