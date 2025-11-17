@@ -59,6 +59,7 @@ in {
       };
 
       apps = {
+        bitwarden = enabled;
         pgadmin = enabled;
         telegram = enabled;
       };

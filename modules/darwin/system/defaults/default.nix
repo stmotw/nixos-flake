@@ -31,7 +31,8 @@ in {
           ]
           ++ lib.optional config.mine.apps.telegram.enable "/Applications/Telegram.app"
           ++ lib.optional config.mine.home-manager.apps.kitty.enable "${pkgs.kitty}/Applications/kitty.app"
-          ++ lib.optional config.mine.home-manager.apps.vscode.enable "${pkgs.unstable.vscode}/Applications/Visual Studio Code.app";
+          ++ lib.optional config.mine.home-manager.apps.vscode.enable "${pkgs.unstable.vscode}/Applications/Visual Studio Code.app"
+          ++ lib.optional config.mine.apps.bitwarden.enable "/Applications/Bitwarden.app";
 
         orientation = "right";
         showhidden = true;
