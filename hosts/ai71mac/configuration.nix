@@ -60,6 +60,7 @@ in {
 
       apps = {
         pgadmin = enabled;
+        telegram = enabled;
       };
 
       cli-tools = {
