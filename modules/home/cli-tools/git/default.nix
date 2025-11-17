@@ -49,7 +49,11 @@ in {
 
         includes = [
           {
-            condition = "gitdir:~/code/motw/";
+            condition = "gitdir:${user.homeDir}/code/ai71/**";
+            contents.user.email = "${sec.users.ai71.email}";
+          }
+          {
+            condition = "gitdir:${user.homeDir}/code/motw/**";
             contents.user.email = "${sec.users.me.email}";
           }
         ];
