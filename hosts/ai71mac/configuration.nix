@@ -70,6 +70,7 @@ in {
         direnv = enabled;
         just = enabled;
         homebrew = enabled;
+        keyring = enabled;
       };
 
       services = {
