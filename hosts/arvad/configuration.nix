@@ -37,6 +37,7 @@ in {
           commitizen = enabled;
           eza = enabled;
           git = enabled;
+          gnupg = enabled // {ssh = true;};
           rust = enabled;
           zig = enabled;
           zoxide = enabled;

@@ -45,7 +45,7 @@ in {
           cruft = enabled;
           eza = enabled;
           git = enabled;
-          gnupg = enabled;
+          gnupg = enabled // {ssh = true;};
           ruff = enabled;
           rust = enabled;
           uv = enabled;

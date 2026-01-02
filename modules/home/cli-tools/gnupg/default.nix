@@ -9,6 +9,7 @@
 in {
   options.mine.home-manager.cli-tools.gnupg = {
     enable = lib.mkEnableOption "hardened GPG configuration";
+    ssh = lib.mkEnableOption "GPG agent SSH support for YubiKey";
   };
 
   config = lib.mkIf cfg.enable {
@@ -56,6 +57,16 @@ in {
           use-agent = true;
           throw-keyids = true;
         };
+      };
+
+      services.gpg-agent = lib.mkIf cfg.ssh {
+        enable = true;
+        enableSshSupport = true;
+        enableZshIntegration = true;
+        pinentry.package =
+          if pkgs.stdenv.isDarwin
+          then pkgs.pinentry_mac
+          else pkgs.pinentry-curses;
       };
     };
   };
