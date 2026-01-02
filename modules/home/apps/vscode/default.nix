@@ -99,12 +99,6 @@ in {
                 sha256 = "18fw4snqfa7bys04r8748vv6x7gfaq2bqvhqm9x3z1fsf7mimv06";
               }
               {
-                name = "vscode-python-envs";
-                publisher = "ms-python";
-                version = "1.2.0";
-                sha256 = "1sqnpbhjyp8cl4qxvfwjqcd5m7zqsfnxwaapm8bvpfvaxhkdy279";
-              }
-              {
                 name = "azure-pipelines";
                 publisher = "ms-azure-devops";
                 version = "1.249.0";
