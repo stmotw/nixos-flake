@@ -69,6 +69,7 @@ in {
         charm-freeze = enabled;
         claude-code = enabled;
         direnv = enabled;
+        glab = enabled;
         just = enabled;
         homebrew = enabled;
         keyring = enabled;
