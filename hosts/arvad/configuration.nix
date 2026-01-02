@@ -7,6 +7,7 @@
   inherit (lib.mine.options) enabled;
 in {
   imports = [
+    ../../overlays/rust
     ../../overlays/unstable
     ../../modules/shared/import.nix
     ../../modules/nixos/import.nix
@@ -33,8 +34,11 @@ in {
 
       home-manager = {
         cli-tools = {
+          commitizen = enabled;
           eza = enabled;
           git = enabled;
+          rust = enabled;
+          zig = enabled;
           zoxide = enabled;
         };
 
