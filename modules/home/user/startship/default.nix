@@ -56,14 +56,14 @@ in {
             style_user = "fg:base06 bg:base01";
             format = "[ $user]($style)";
             show_always = true;
-            aliases = sec.work.aliases.username;
+            aliases = sec.aliases.ai71.username;
           };
           hostname = {
             ssh_only = false;
             ssh_symbol = "ssh:";
             format = "[@$ssh_symbol$hostname ]($style)";
             style = "fg:base06 bg:base01";
-            aliases = sec.work.aliases.hostname;
+            aliases = sec.aliases.ai71.hostname;
           };
           directory = {
             format = "[ $path ]($style)[$read_only]($read_only_style)";

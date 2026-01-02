@@ -23,10 +23,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.linuxPackages.usbip
-      pkgs.yubikey-manager
-      pkgs.libfido2
+    environment.systemPackages = with pkgs; [
+      linuxPackages.usbip
+      yubikey-manager
+      libfido2
     ];
 
     services.pcscd.enable = true;

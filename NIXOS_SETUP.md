@@ -54,18 +54,8 @@ Prerequisites: <https://github.com/nix-darwin/nix-darwin?tab=readme-ov-file#prer
 Use vanilla nix from determinate:
 
 ```bash
-curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install --prefer-upstream-nix
 ```
-
-When prompted
-
-```plaintext
-Determinate Nix is tested and ready for macOS Tahoe when you are. Selecting ‘no’ will install Nix from NixOS.
-
-Proceed? ([Y]es/[n]o/[e]xplain):
-```
-
-Select `no` to install vanilla nix. Otherwise you'll need to add `nix.enable = false;` in your flake, see prerequisites link.
 
 ---
 
@@ -102,7 +92,7 @@ nixos-rebuild list-generations
 From MacOS console:
 
 ```bash
-sudo darwin-rebuild switch --flake .#work-mac
+sudo darwin-rebuild switch --flake .#ai71mac
 sudo darwin-rebuild --list-generations
 ```
 
