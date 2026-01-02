@@ -16,6 +16,10 @@ in {
       home.packages = with pkgs; [
         unstable.uv
       ];
+
+      home.sessionVariables = {
+        UV_PREVIEW_FEATURES = "native-auth";
+      };
     };
   };
 }
