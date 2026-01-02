@@ -47,6 +47,7 @@ in {
             c = "commit -v";
           };
 
+          commit.gpgSign = true;
           core.editor = "nvim";
           init.defaultBranch = "main";
           push.autoSetupRemote = true;
@@ -57,13 +58,15 @@ in {
             condition = "gitdir:${user.homeDir}/code/ai71/**";
             contents = {
               user.email = "${sec.users.ai71.email}";
-              user.signingKey = "${sec.ai71.signingKey}";
-              commit.gpgSign = true;
+              user.signingKey = "${sec.signingKey.ai71}";
             };
           }
           {
             condition = "gitdir:${user.homeDir}/code/motw/**";
-            contents.user.email = "${sec.users.me.email}";
+            contents = {
+              user.email = "${sec.users.me.email}";
+              user.signingKey = "${sec.signingKey.me}";
+            };
           }
         ];
       };
