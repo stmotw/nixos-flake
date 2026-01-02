@@ -26,8 +26,6 @@ in {
         # TODO: migrate to stylix when support is ready:
         # https://github.com/nix-community/stylix/issues/545
         theme = {
-          colourful = true;
-
           filekinds = {
             normal.foreground = "#${config.lib.stylix.colors.base07}";
             directory.foreground = "#${config.lib.stylix.colors.base16}";
