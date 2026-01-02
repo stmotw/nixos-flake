@@ -72,7 +72,6 @@ in {
         glab = enabled;
         just = enabled;
         homebrew = enabled;
-        keyring = enabled;
       };
 
       services = {
