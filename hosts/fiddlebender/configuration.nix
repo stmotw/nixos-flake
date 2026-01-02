@@ -22,21 +22,7 @@ in {
     nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
     # TODO: split into modules
-    boot = {
-      loader = {
-        systemd-boot.enable = true;
-        efi = {
-          canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot";
-        };
-      };
-      initrd.systemd.enable = true;
-    };
-
     systemd.targets.multi-user.enable = true;
-
-    networking.hostName = "fiddlebender";
-    networking.networkmanager.enable = true;
 
     users = {
       mutableUsers = false;
