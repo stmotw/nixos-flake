@@ -24,19 +24,6 @@ in {
     # TODO: split into modules
     systemd.targets.multi-user.enable = true;
 
-    # Enable passwordless sudo.
-    security.sudo.extraRules = [
-      {
-        users = ["${sec.users.me.username}"];
-        commands = [
-          {
-            command = "ALL";
-            options = ["NOPASSWD"];
-          }
-        ];
-      }
-    ];
-
     # Disable autologin.
     services.getty.autologinUser = null;
 
@@ -79,6 +66,7 @@ in {
 
       system = {
         nix.flakes = enabled;
+        security.sudonopass = enabled;
         services.openssh = enabled;
         shell.zsh = enabled;
         stylix = enabled;
