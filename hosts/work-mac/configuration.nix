@@ -7,6 +7,7 @@
   inherit (lib.mine.options) enabled;
 in {
   imports = [
+    ../../overlays/rust
     ../../overlays/unstable
     ../../modules/shared/import.nix
     ../../modules/darwin/import.nix
@@ -42,6 +43,7 @@ in {
         cli-tools = {
           eza = enabled;
           git = enabled;
+          rust = enabled;
           zoxide = enabled;
         };
 
