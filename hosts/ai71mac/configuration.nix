@@ -41,7 +41,6 @@ in {
         };
 
         cli-tools = {
-          az = enabled;
           commitizen = enabled;
           cruft = enabled;
           eza = enabled;
@@ -65,6 +64,7 @@ in {
       };
 
       cli-tools = {
+        az = enabled;
         charm-freeze = enabled;
         claude-code = enabled;
         direnv = enabled;
