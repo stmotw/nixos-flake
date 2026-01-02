@@ -7,13 +7,15 @@
   cfg = config.mine.system.yubikey;
 in {
   options.mine.system.yubikey = {
-    enable = lib.mkEnableOption "Enable yubikey FIDO support";
+    enable = lib.mkEnableOption "Enable YubiKey support";
   };
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       libfido2
       openssh
+      yubikey-manager
+      yubikey-personalization
     ];
   };
 }

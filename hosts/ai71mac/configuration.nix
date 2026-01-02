@@ -45,6 +45,7 @@ in {
           cruft = enabled;
           eza = enabled;
           git = enabled;
+          gnupg = enabled;
           ruff = enabled;
           rust = enabled;
           uv = enabled;

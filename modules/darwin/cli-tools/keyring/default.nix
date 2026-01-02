@@ -13,7 +13,11 @@ in {
   config = lib.mkIf cfg.enable {
     homebrew.brews = ["dotnet"];
 
-    home-manager.users.${user.username} = {config, pkgs, ...}: {
+    home-manager.users.${user.username} = {
+      config,
+      pkgs,
+      ...
+    }: {
       home.activation.keyringSetup = config.lib.dag.entryAfter ["writeBoundary"] ''
         # Install keyring with artifacts-keyring plugin via uv
         if ! $DRY_RUN_CMD ${pkgs.unstable.uv}/bin/uv tool list | grep -q "keyring"; then
