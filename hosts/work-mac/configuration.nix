@@ -52,11 +52,17 @@ in {
         };
       };
 
+      apps = {
+        ollama = enabled;
+        steam = enabled;
+      };
+
       cli-tools = {
         charm-freeze = enabled;
         claude-code = enabled;
         direnv = enabled;
         just = enabled;
+        homebrew = enabled;
       };
 
       system = {
