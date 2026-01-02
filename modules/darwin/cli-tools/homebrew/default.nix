@@ -11,6 +11,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPath = [
+      "/opt/homebrew/bin"
+    ];
+
     homebrew = {
       enable = true;
       onActivation = {
