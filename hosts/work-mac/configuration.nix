@@ -9,21 +9,23 @@ in {
   imports = [
     ../../overlays/unstable
     ../../modules/shared/import.nix
-    ../../modules/nixos/import.nix
-    ../../modules/wsl/import.nix
+    ../../modules/darwin/import.nix
     ../../modules/home/import.nix
   ];
 
   config = {
-    system.stateVersion = "25.05";
-    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    system = {
+      stateVersion = 6;
+      primaryUser = "${sec.users.work.username}";
+    };
+    nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin";
 
     mine = {
       user =
         enabled
-        // sec.users.me
+        // sec.users.work
         // {
-          homeDir = "/home/${sec.users.me.username}";
+          homeDir = "/Users/${sec.users.work.username}";
           home-manager = enabled;
           shell = {
             package = pkgs.zsh;
@@ -32,6 +34,11 @@ in {
         };
 
       home-manager = {
+        apps = {
+          kitty = enabled;
+          vscode = enabled;
+        };
+
         cli-tools = {
           eza = enabled;
           git = enabled;
@@ -50,22 +57,12 @@ in {
         just = enabled;
       };
 
-      services = {
-        docker = enabled;
-        vscode-server = enabled;
-      };
-
       system = {
+        defaults = enabled;
         nix.flakes = enabled;
         shell.zsh = enabled;
         stylix = enabled;
-        timezone = enabled // {location = sec.timeZone;};
         utils = enabled // {dev = true;};
-      };
-
-      windows = {
-        start-menu = enabled;
-        docker-desktop = enabled;
       };
     };
   };

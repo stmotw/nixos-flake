@@ -56,7 +56,7 @@ in {
             style_user = "fg:base06 bg:base01";
             format = "[ $user]($style)";
             show_always = true;
-            aliases = {"${sec.users.work.username}" = "${sec.users.work.alias}";};
+            aliases = {"${sec.users.work.username}" = "${sec.work.user.alias}";};
           };
           hostname = {
             ssh_only = false;
