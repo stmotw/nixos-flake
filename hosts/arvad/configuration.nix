@@ -67,6 +67,7 @@ in {
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
         openssl = enabled;
+        pkgconfig = enabled;
         utils = enabled // {dev = true;};
       };
 
