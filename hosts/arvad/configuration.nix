@@ -60,6 +60,7 @@ in {
       };
 
       system = {
+        gcc = enabled;
         fonts = enabled;
         security.sudonopass = enabled;
         shell.zsh = enabled;
