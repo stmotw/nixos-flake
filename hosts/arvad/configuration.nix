@@ -65,6 +65,7 @@ in {
         shell.zsh = enabled;
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
+        openssl = enabled;
         utils = enabled // {dev = true;};
       };
 
