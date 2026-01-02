@@ -55,7 +55,11 @@ in {
         includes = [
           {
             condition = "gitdir:${user.homeDir}/code/ai71/**";
-            contents.user.email = "${sec.users.ai71.email}";
+            contents = {
+              user.email = "${sec.users.ai71.email}";
+              user.signingKey = "${sec.ai71.signingKey}";
+              commit.gpgSign = true;
+            };
           }
           {
             condition = "gitdir:${user.homeDir}/code/motw/**";
