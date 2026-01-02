@@ -17,6 +17,13 @@ in {
         eza
       ];
 
+      # https://github.com/eza-community/eza/issues/1224
+      # On macOS, eza looks for theme.yml in ~/Library/Application Support/eza by default
+      # Set environment variable to use XDG config location
+      home.sessionVariables = lib.mkIf pkgs.stdenv.isDarwin {
+        EZA_CONFIG_DIR = "\${HOME}/.config/eza";
+      };
+
       programs.eza = {
         enable = true;
         enableZshIntegration = config.mine.home-manager.system.shell.zsh.enable;
