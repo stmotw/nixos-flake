@@ -2,8 +2,8 @@
   config,
   hostname,
   lib,
-  pkgs,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [

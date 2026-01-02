@@ -1,5 +1,3 @@
-# Credit: @thursdaddy
-# https://github.com/thursdaddy/nixos-config/blob/556d74ca6e3a1043b67832ecde71f3987a91ba09/lib/default.nix
 {lib}: {
   ## Create a NixOS module option with no default
   ##
