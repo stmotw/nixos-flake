@@ -62,6 +62,7 @@ in {
         bitwarden = enabled;
         pgadmin = enabled;
         telegram = enabled;
+        yubico-authenticator = enabled;
       };
 
       cli-tools = {
