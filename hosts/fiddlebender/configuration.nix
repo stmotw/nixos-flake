@@ -65,7 +65,6 @@ in {
       };
 
       system = {
-        nix.flakes = enabled;
         security.sudonopass = enabled;
         services.openssh = enabled;
         shell.zsh = enabled;
