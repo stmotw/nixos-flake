@@ -27,6 +27,11 @@ in {
       programs.gpg = {
         enable = true;
 
+        # Disable CCID on Darwin to avoid repeated YubiKey insertion prompts
+        scdaemonSettings = lib.mkIf pkgs.stdenv.isDarwin {
+          disable-ccid = true;
+        };
+
         # Hardening based on https://github.com/drduh/config/blob/main/gpg.conf
         settings = {
           personal-cipher-preferences = "AES256 AES192 AES";
