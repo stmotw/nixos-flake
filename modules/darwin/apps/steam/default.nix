@@ -6,7 +6,7 @@
   cfg = config.mine.apps.steam;
 in {
   options.mine.apps.steam = {
-    enable = lib.mkEnableOption "Install Steam";
+    enable = lib.mkEnableOption "Install steam";
   };
 
   config = lib.mkIf cfg.enable {

@@ -60,6 +60,7 @@ in {
 
       apps = {
         ollama = enabled;
+        pgadmin = enabled;
         steam = enabled;
       };
 
