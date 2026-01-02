@@ -125,3 +125,14 @@ nix-env --delete-generations 1d
 ### Passing keys to WSL
 
 <https://lgug2z.com/articles/yubikey-passthrough-on-wsl2-with-full-fido2-support/>
+
+- Install custom WSL kernel
+- `usbipd list` to find id of the key
+- `usbipd bind --busid <id>` as administrator
+- `usbipd attach --wsl --busid <id>`
+
+### adding new ssh key
+
+```bash
+ssh-keygen -t ed25519-sk -O resident -O application=ssh:[my-hostname] -O verify-required -C "my@email.com"
+```
