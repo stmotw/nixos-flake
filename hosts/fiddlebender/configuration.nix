@@ -57,8 +57,6 @@ in {
       };
 
       cli-tools = {
-        direnv = enabled;
-        just = enabled;
       };
 
       services = {

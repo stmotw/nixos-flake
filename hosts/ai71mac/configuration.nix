@@ -42,7 +42,6 @@ in {
 
         cli-tools = {
           commitizen = enabled;
-          cruft = enabled;
           eza = enabled;
           git = enabled;
           gnupg = enabled // {ssh = true;};
@@ -66,12 +65,13 @@ in {
       };
 
       cli-tools = {
-        az = enabled;
+        az = enabled; # TODO: delete after switching to 1Password
         charm-freeze = enabled;
         claude-code = enabled;
         direnv = enabled;
         glab = enabled;
         just = enabled;
+        make = enabled;
         homebrew = enabled;
       };
 
@@ -81,6 +81,7 @@ in {
 
       system = {
         defaults = enabled;
+        gcc = enabled;
         fonts = enabled;
         security.touchsudo = enabled;
         shell.zsh = enabled;

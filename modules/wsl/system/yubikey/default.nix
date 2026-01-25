@@ -13,7 +13,6 @@
   };
 in {
   options.mine.system.yubikey = {
-    enable = lib.mkEnableOption "Enable yubikey integration for WSL";
     autoAttach = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];

@@ -65,6 +65,7 @@ in {
         gcc = enabled;
         fonts = enabled;
         security.sudonopass = enabled;
+        services.openssh = enabled;
         shell.zsh = enabled;
         stylix = enabled;
         timezone = enabled // {location = sec.timeZone;};
