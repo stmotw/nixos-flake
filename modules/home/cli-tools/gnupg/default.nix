@@ -13,7 +13,6 @@ in {
     publicKeys = lib.mkOption {
       type = lib.types.listOf lib.types.path;
       description = "List of GPG public key files to import (e.g., for YubiKey setup)";
-      default = [];
     };
   };
 

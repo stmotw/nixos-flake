@@ -15,7 +15,6 @@ in {
     homeDir = mkOpt lib.types.str "Home directory path";
     home-manager.enable = lib.mkEnableOption "Enable home-manager";
     shell = lib.mkOption {
-      default = {};
       description = "Shell config for user";
       type = lib.types.submodule {
         options = {

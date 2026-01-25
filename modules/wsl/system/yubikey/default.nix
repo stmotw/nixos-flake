@@ -12,7 +12,6 @@ in {
     autoAttach = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       description = "Auto attach devices with provided Bus IDs.";
-      default = [];
     };
   };
 
