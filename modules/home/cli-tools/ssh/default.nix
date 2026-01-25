@@ -18,6 +18,7 @@ in {
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username}.programs.ssh = {
       enable = true;
+      enableDefaultConfig = false;
       matchBlocks = lib.mapAttrs (_: hostCfg:
         hostCfg
         // {
