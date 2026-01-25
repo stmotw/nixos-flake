@@ -26,6 +26,8 @@ in {
           if cfg.root
           then "prohibit-password"
           else lib.mkDefault "no";
+        # Allow GPG agent socket forwarding by removing stale sockets
+        StreamLocalBindUnlink = "yes";
       };
     };
   };

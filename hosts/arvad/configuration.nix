@@ -44,6 +44,7 @@ in {
               publicKeys = map pkgs.fetchurl (with sec.gpgPublicKey; [me]);
             };
           rust = enabled;
+          ssh = enabled // {forwardGpgAgent = true;};
           zig = enabled;
           zoxide = enabled;
         };

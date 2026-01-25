@@ -48,6 +48,11 @@ in {
         cli-tools = {
           eza = enabled;
           git = enabled;
+          gnupg =
+            enabled
+            // {
+              publicKeys = map pkgs.fetchurl (with sec.gpgPublicKey; [me]);
+            };
           zoxide = enabled;
         };
 

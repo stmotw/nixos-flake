@@ -52,6 +52,7 @@ in {
             };
           ruff = enabled;
           rust = enabled;
+          ssh = enabled // {forwardGpgAgent = true;};
           uv = enabled;
           zig = enabled;
           zoxide = enabled;
