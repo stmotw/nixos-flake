@@ -50,23 +50,15 @@ in {
           eza = enabled;
           git =
             enabled
-            // {
-              signingKey = sec.signingKey.me;
-              includes =
-                lib.mapAttrsToList (name: user: {
-                  condition = "gitdir:${homeDir}/code/${name}/**";
-                  contents = {
-                    user.email = user.email;
-                    user.signingKey = sec.signingKey.${name};
-                  };
-                })
-                sec.users;
+            // lib.mine.configs.mkGitConfig {
+              inherit sec homeDir;
+              primaryUser = "me";
             };
           gnupg =
             enabled
-            // {
-              ssh = true;
-              publicKeys = map pkgs.fetchurl (with sec.gpgPublicKey; [me]);
+            // lib.mine.configs.mkGnupgConfig {
+              inherit pkgs sec;
+              profiles = ["me"];
             };
           zoxide = enabled;
         };
