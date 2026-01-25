@@ -6,11 +6,7 @@
   ...
 }: let
   cfg = config.mine.system.yubikey;
-
-  usbipd-win-auto-attach = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/dorssel/usbipd-win/v3.1.0/Usbipd/wsl-scripts/auto-attach.sh";
-    hash = "sha256-KJ0tEuY+hDJbBQtJj8nSNk17FHqdpDWTpy9/DLqUFaM=";
-  };
+  usbipd-win-auto-attach = ./auto-attach.sh;
 in {
   options.mine.system.yubikey = {
     autoAttach = lib.mkOption {
