@@ -35,7 +35,27 @@ Modules are enabled by options in `hosts/<host>/configuration.nix`. Modules defi
 
 ## Secrets
 
-TBD
+Secrets are managed via [git-crypt](https://github.com/AGWA/git-crypt), which provides transparent encryption of files in a git repository.
+
+1. `secrets.nix` contains all sensitive configuration (emails, signing keys, user aliases, etc.)
+2. The file is encrypted at rest in the repository via git-crypt (see `.gitattributes`)
+3. On clone, the file appears as encrypted binary data
+4. After unlocking with `git-crypt unlock`, the file is transparently decrypted
+
+### Cloning my setup
+
+```bash
+# Initialize your own git-crypt key
+rm secrets.nix
+git-crypt init
+
+cp secrets.example.nix secrets.nix
+# Edit secrets.nix with your values
+```
+
+### CI
+
+CI uses `secrets.example.nix` as a mock to evaluate the flake without the git-crypt key.
 
 ## Extending the lib
 
