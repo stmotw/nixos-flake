@@ -21,10 +21,17 @@ in {
       enableDefaultConfig = false;
       matchBlocks = lib.mapAttrs (_: hostCfg:
         hostCfg
-        // {
-          extraOptions = lib.mkIf cfg.forwardGpgAgent {
-            RemoteForward = "/run/user/1000/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent.extra";
-          };
+        // lib.optionalAttrs cfg.forwardGpgAgent {
+          remoteForwards = [
+            {
+              bind.address = "/run/user/1000/gnupg/S.gpg-agent";
+              host.address = "/run/user/1000/gnupg/S.gpg-agent.extra";
+            }
+            {
+              bind.address = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+              host.address = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+            }
+          ];
         })
       cfg.hosts;
     };

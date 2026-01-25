@@ -65,6 +65,7 @@ in {
           gnupg =
             enabled
             // {
+              ssh = true;
               publicKeys = map pkgs.fetchurl (with sec.gpgPublicKey; [me]);
             };
           zoxide = enabled;
