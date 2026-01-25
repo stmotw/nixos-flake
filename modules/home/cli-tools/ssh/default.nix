@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  sec,
   ...
 }: let
   inherit (config.mine) user;
@@ -10,6 +9,10 @@ in {
   options.mine.home-manager.cli-tools.ssh = {
     enable = lib.mkEnableOption "SSH client configuration";
     forwardGpgAgent = lib.mkEnableOption "GPG agent forwarding to all hosts";
+    hosts = lib.mkOption {
+      type = lib.types.attrsOf lib.types.attrs;
+      description = "SSH host configurations (matchBlocks)";
+    };
   };
 
   config = lib.mkIf cfg.enable {

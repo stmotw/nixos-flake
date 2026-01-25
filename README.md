@@ -5,25 +5,27 @@ My Nix flake ❄
 ## Structure
 
 ```plaintext
-├── hosts/
-│   ├── arvad/        # WSL nixos
-│   ├── fiddlebender/ # Oracle Cloud VM
-│   └── ai71mac/      # 2024 11 MacBook Pro M4
-├── lib/              # custom lib functions
-├── modules/
-│   ├── darwin/       # darwin configurations
-│   ├── home/         # home-manager configurations
-│   ├── nixos/        # nixos configurations
-│   ├── shared/       # shared darwin, nixos and wsl configurations
-│   └── wsl/          # wsl configurations
-├── overlays/         # overlay configurations
-├── flake.nix
-└── flake.lock
+├── hosts/              # Defines host configs using data from secrets.nix
+│   ├── arvad/          # WSL NixOS machine
+│   ├── fiddlebender/   # Oracle Cloud VM
+│   └── ai71mac/        # 2024 11 MacBook Pro M4
+├── lib/                # Custom lib functions
+├── modules/            # Host-independent implementation of available modules
+│   ├── darwin/         # Darwin configurations
+│   ├── home/           # home-manager configurations
+│   ├── nixos/          # NixOS configurations
+│   ├── shared/         # Shared darwin, nixos and wsl configurations
+│   └── wsl/            # WSL configurations
+├── overlays/           # Overlay configurations
+├── flake.nix           # 
+├── flake.lock
+├── secrets.example.nix # Dummy personal information, following secrets.nix
+└── secrets.nix         # User's personal information
 ```
 
 ## Config
 
-Modules are enabled by options in `hosts/<host>/configuration.nix`.
+Modules are enabled by options in `hosts/<host>/configuration.nix`. Modules define options but never read `secrets.nix` directly - hosts pass secrets via options.
 
 `config.mine.<category>.<...>.<option>.enable` is defined in
 `modules/[darwin|nixos|shared|wsl]/<category>/<...>/<option>/default.nix`.

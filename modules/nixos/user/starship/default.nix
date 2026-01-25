@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  sec,
   ...
 }: let
   cfg = config.mine.user.shell.starship;

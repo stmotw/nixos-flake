@@ -6,6 +6,7 @@
   ...
 }: let
   inherit (lib.mine.options) enabled;
+  homeDir = "/home/${sec.users.me.username}";
 in {
   imports = [
     inputs.disko.nixosModules.disko
@@ -36,7 +37,7 @@ in {
         enabled
         // sec.users.me
         // {
-          homeDir = "/home/${sec.users.me.username}";
+          homeDir = homeDir;
           home-manager = enabled;
           shell = {
             package = pkgs.zsh;
@@ -47,7 +48,20 @@ in {
       home-manager = {
         cli-tools = {
           eza = enabled;
-          git = enabled;
+          git =
+            enabled
+            // {
+              signingKey = sec.signingKey.me;
+              includes =
+                lib.mapAttrsToList (name: user: {
+                  condition = "gitdir:${homeDir}/code/${name}/**";
+                  contents = {
+                    user.email = user.email;
+                    user.signingKey = sec.signingKey.${name};
+                  };
+                })
+                sec.users;
+            };
           gnupg =
             enabled
             // {

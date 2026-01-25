@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  sec,
   ...
 }: let
   inherit (config.mine) user;
@@ -56,14 +55,14 @@ in {
             style_user = "fg:base06 bg:base01";
             format = "[ $user]($style)";
             show_always = true;
-            aliases = sec.aliases.ai71.username;
+            aliases = cfg.aliases.username or {};
           };
           hostname = {
             ssh_only = false;
             ssh_symbol = "ssh:";
             format = "[@$ssh_symbol$hostname ]($style)";
             style = "fg:base06 bg:base01";
-            aliases = sec.aliases.ai71.hostname;
+            aliases = cfg.aliases.hostname or {};
           };
           directory = {
             format = "[ $path ]($style)[$read_only]($read_only_style)";

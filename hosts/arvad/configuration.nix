@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib.mine.options) enabled;
+  homeDir = "/home/${sec.users.me.username}";
 in {
   imports = [
     ../../overlays/rust
@@ -24,7 +25,7 @@ in {
         enabled
         // sec.users.me
         // {
-          homeDir = "/home/${sec.users.me.username}";
+          homeDir = homeDir;
           home-manager = enabled;
           shell = {
             package = pkgs.zsh;
@@ -36,7 +37,20 @@ in {
         cli-tools = {
           commitizen = enabled;
           eza = enabled;
-          git = enabled;
+          git =
+            enabled
+            // {
+              signingKey = sec.signingKey.me;
+              includes =
+                lib.mapAttrsToList (name: user: {
+                  condition = "gitdir:${homeDir}/code/${name}/**";
+                  contents = {
+                    user.email = user.email;
+                    user.signingKey = sec.signingKey.${name};
+                  };
+                })
+                sec.users;
+            };
           gnupg =
             enabled
             // {
@@ -44,7 +58,12 @@ in {
               publicKeys = map pkgs.fetchurl (with sec.gpgPublicKey; [me]);
             };
           rust = enabled;
-          ssh = enabled // {forwardGpgAgent = true;};
+          ssh =
+            enabled
+            // {
+              forwardGpgAgent = true;
+              hosts = sec.hosts;
+            };
           zig = enabled;
           zoxide = enabled;
         };

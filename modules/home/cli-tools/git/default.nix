@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  sec,
   ...
 }: let
   inherit (config.mine) user;
@@ -10,6 +9,14 @@
 in {
   options.mine.home-manager.cli-tools.git = {
     enable = lib.mkEnableOption "git configs";
+    signingKey = lib.mkOption {
+      type = lib.types.str;
+      description = "Default GPG signing key";
+    };
+    includes = lib.mkOption {
+      type = lib.types.listOf lib.types.attrs;
+      description = "Conditional git configuration includes";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -36,6 +43,7 @@ in {
           user = {
             name = "${user.name}";
             email = "${user.email}";
+            signingKey = cfg.signingKey;
           };
 
           alias = {
@@ -53,22 +61,7 @@ in {
           push.autoSetupRemote = true;
         };
 
-        includes = [
-          {
-            condition = "gitdir:${user.homeDir}/code/ai71/**";
-            contents = {
-              user.email = "${sec.users.ai71.email}";
-              user.signingKey = "${sec.signingKey.ai71}";
-            };
-          }
-          {
-            condition = "gitdir:${user.homeDir}/code/motw/**";
-            contents = {
-              user.email = "${sec.users.me.email}";
-              user.signingKey = "${sec.signingKey.me}";
-            };
-          }
-        ];
+        includes = cfg.includes;
       };
     };
   };

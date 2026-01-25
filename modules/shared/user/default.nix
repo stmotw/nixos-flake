@@ -19,7 +19,14 @@ in {
       type = lib.types.submodule {
         options = {
           package = mkOpt lib.types.package "User shell";
-          starship.enable = lib.mkEnableOption "Enable starship";
+          starship = {
+            enable = lib.mkEnableOption "Enable starship";
+            aliases = lib.mkOption {
+              type = lib.types.attrsOf (lib.types.attrsOf lib.types.str);
+              default = {};
+              description = "Username and hostname aliases for starship prompt";
+            };
+          };
         };
       };
     };
