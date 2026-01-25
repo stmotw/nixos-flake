@@ -10,6 +10,11 @@ in {
   options.mine.home-manager.cli-tools.gnupg = {
     enable = lib.mkEnableOption "hardened GPG configuration";
     ssh = lib.mkEnableOption "GPG agent SSH support for YubiKey";
+    publicKeys = lib.mkOption {
+      type = lib.types.listOf lib.types.path;
+      description = "List of GPG public key files to import (e.g., for YubiKey setup)";
+      default = [];
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -27,6 +32,13 @@ in {
 
       programs.gpg = {
         enable = true;
+
+        publicKeys =
+          map (key: {
+            source = key;
+            trust = "ultimate";
+          })
+          cfg.publicKeys;
 
         # Disable CCID on Darwin to avoid repeated YubiKey insertion prompts
         scdaemonSettings = lib.mkIf pkgs.stdenv.isDarwin {

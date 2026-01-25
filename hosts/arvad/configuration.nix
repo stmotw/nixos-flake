@@ -37,7 +37,12 @@ in {
           commitizen = enabled;
           eza = enabled;
           git = enabled;
-          gnupg = enabled // {ssh = true;};
+          gnupg =
+            enabled
+            // {
+              ssh = true;
+              publicKeys = map pkgs.fetchurl (with sec.gpgPublicKey; [me]);
+            };
           rust = enabled;
           zig = enabled;
           zoxide = enabled;

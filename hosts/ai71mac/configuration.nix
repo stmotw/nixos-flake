@@ -44,7 +44,12 @@ in {
           commitizen = enabled;
           eza = enabled;
           git = enabled;
-          gnupg = enabled // {ssh = true;};
+          gnupg =
+            enabled
+            // {
+              ssh = true;
+              publicKeys = map pkgs.fetchurl (with sec.gpgPublicKey; [me ai71]);
+            };
           ruff = enabled;
           rust = enabled;
           uv = enabled;
