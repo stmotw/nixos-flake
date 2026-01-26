@@ -42,6 +42,7 @@ in {
         };
 
         cli-tools = {
+          _1password = enabled;
           commitizen = enabled;
           eza = enabled;
           git =
@@ -75,6 +76,7 @@ in {
       };
 
       apps = {
+        _1password = enabled;
         bitwarden = enabled;
         pgadmin = enabled;
         telegram = enabled;
