@@ -36,6 +36,7 @@ in {
       home-manager = {
         cli-tools = {
           commitizen = enabled;
+          direnv = enabled;
           eza = enabled;
           git =
             enabled
@@ -68,7 +69,6 @@ in {
       cli-tools = {
         charm-freeze = enabled;
         claude-code = enabled;
-        direnv = enabled;
         just = enabled;
         make = enabled;
       };

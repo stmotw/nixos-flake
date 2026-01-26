@@ -44,6 +44,7 @@ in {
         cli-tools = {
           _1password = enabled;
           commitizen = enabled;
+          direnv = enabled;
           eza = enabled;
           git =
             enabled
@@ -87,7 +88,6 @@ in {
         az = enabled; # TODO: delete after switching to 1Password
         charm-freeze = enabled;
         claude-code = enabled;
-        direnv = enabled;
         glab = enabled;
         just = enabled;
         make = enabled;
