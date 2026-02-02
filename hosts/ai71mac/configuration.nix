@@ -89,6 +89,7 @@ in {
         az = enabled; # TODO: delete after switching to 1Password
         charm-freeze = enabled;
         claude-code = enabled;
+        git-credential-manager = enabled;
         glab = enabled;
         just = enabled;
         make = enabled;
