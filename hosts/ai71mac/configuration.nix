@@ -81,7 +81,6 @@ in {
         bitwarden = enabled;
         pgadmin = enabled;
         telegram = enabled;
-        windsurf = enabled;
         yubico-authenticator = enabled;
       };
 
