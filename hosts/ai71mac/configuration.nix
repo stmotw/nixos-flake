@@ -100,8 +100,8 @@ in {
       };
 
       system = {
+        clang = enabled;
         defaults = enabled;
-        gcc = enabled;
         fonts = enabled;
         security.touchsudo = enabled;
         shell.zsh = enabled;
