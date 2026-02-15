@@ -7,6 +7,11 @@
   inherit (config.mine) user;
 in {
   config = lib.mkIf user.enable {
+    environment.variables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+
     users.knownUsers = ["${user.username}"];
 
     users.users."${user.username}" = {
