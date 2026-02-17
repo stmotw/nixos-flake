@@ -85,6 +85,7 @@ in {
       };
 
       cli-tools = {
+        argocd = enabled;
         az = enabled; # TODO: delete after switching to 1Password
         charm-freeze = enabled;
         claude-code = enabled;
