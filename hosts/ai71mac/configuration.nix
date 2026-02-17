@@ -90,6 +90,7 @@ in {
         claude-code = enabled;
         git-credential-manager = enabled;
         glab = enabled;
+        helm = enabled;
         just = enabled;
         make = enabled;
         homebrew = enabled;
