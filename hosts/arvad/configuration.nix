@@ -37,6 +37,7 @@ in {
         cli-tools = {
           commitizen = enabled;
           direnv = enabled;
+          docker = enabled;
           eza = enabled;
           git =
             enabled

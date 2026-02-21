@@ -45,6 +45,7 @@ in {
           _1password = enabled;
           commitizen = enabled;
           direnv = enabled;
+          docker = enabled;
           eza = enabled;
           git =
             enabled
