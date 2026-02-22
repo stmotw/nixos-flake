@@ -86,8 +86,8 @@ in {
               {
                 name = "vscode-containers";
                 publisher = "ms-azuretools";
-                version = "2.1.0";
-                sha256 = "1a3kzj088i78dsmwcd4l462nc0kmiz8vngrhsl8mbz4vrl04p8pp";
+                version = "2.4.1";
+                sha256 = "02zqkdxazzppmj7pg9g0633fn1ima2qrb4jpb6pwir5maljlj31v";
               }
               {
                 name = "yamlfmt";
@@ -98,20 +98,20 @@ in {
               {
                 name = "vscode-markdownlint";
                 publisher = "DavidAnson";
-                version = "0.60.0";
-                sha256 = "18fw4snqfa7bys04r8748vv6x7gfaq2bqvhqm9x3z1fsf7mimv06";
+                version = "0.61.1";
+                sha256 = "0g0lfxcx7hkigs5780pjrbzwh2c616fcqygzlvwhvfsllj5j5vnw";
               }
               {
                 name = "azure-pipelines";
                 publisher = "ms-azure-devops";
-                version = "1.249.0";
-                sha256 = "1154j7yfin2iznlngd9lcw0lsgmy5jx9qaghrjf0fv61sxkj7gvs";
+                version = "1.261.1";
+                sha256 = "111kqybs73nqav4b067dv2kvsgy67w1c31irjrxqxiqbyqaicj4l";
               }
               {
                 name = "claude-code";
                 publisher = "Anthropic";
-                version = "1.0.100";
-                sha256 = "1i0mzbifwlvsihb586rfisfgm7z744jk5slgla11njcwk4y2h8pa";
+                version = "2.1.49";
+                sha256 = "184gwn4cza8w0cazf9z7s31kg2zz47lzwmc65qj1zzhc6pah0v7m";
               }
               {
                 name = "code-spell-checker-russian";
