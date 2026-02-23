@@ -75,5 +75,9 @@ in {
         AutomaticallyInstallMacOSUpdates = true;
       };
     };
+
+    system.activationScripts.postActivation.text = lib.mkIf (config.mine.system.stylix.wallpaper != null) ''
+      osascript -e 'tell application "System Events" to tell every desktop to set picture to POSIX file "${config.mine.system.stylix.wallpaper}"'
+    '';
   };
 }

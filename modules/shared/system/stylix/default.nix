@@ -58,11 +58,17 @@ in {
       default = lightScheme;
       description = "Light base16 color scheme for apps supporting light/dark switching";
     };
+    wallpaper = lib.mkOption {
+      type = lib.types.nullOr lib.types.path;
+      default = null;
+      description = "Wallpaper image (use a dynamic .heic for macOS light/dark switching)";
+    };
   };
 
   config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
+      image = lib.mkIf (cfg.wallpaper != null) cfg.wallpaper;
       base16Scheme = darkScheme;
 
       fonts = {
