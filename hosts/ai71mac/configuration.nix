@@ -109,9 +109,11 @@ in {
         fonts = enabled;
         security.touchsudo = enabled;
         shell.zsh = enabled;
-        stylix = enabled // {
-          wallpaper = "${inputs.self}/wallpapers/dark_light.heic";
-        };
+        stylix =
+          enabled
+          // {
+            wallpaper = "${inputs.self}/wallpapers/dark_light.heic";
+          };
         timezone = enabled // {location = sec.timeZone;};
         utils = enabled // {dev = true;};
         yubikey = enabled;
