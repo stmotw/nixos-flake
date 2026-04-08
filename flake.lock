@@ -256,6 +256,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-direnv-pin": {
+      "locked": {
+        "lastModified": 1752191510,
+        "narHash": "sha256-JL8u+IeygaYZr3HY60UZLoWJN3A6e4OggZ78iVKzMXk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1827c0ecaace5ff03e0443d3bdaaf65018eee630",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1827c0ecaace5ff03e0443d3bdaaf65018eee630",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1775423009,
@@ -304,6 +320,7 @@
         "nix-darwin": "nix-darwin",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-direnv-pin": "nixpkgs-direnv-pin",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "rust-overlay": "rust-overlay",
         "ssh-keys": "ssh-keys",

@@ -35,6 +35,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Pin direnv to 2.36.0 — 2.37.1 fish tests get killed on macOS sandbox
+    nixpkgs-direnv-pin.url = "github:nixos/nixpkgs/1827c0ecaace5ff03e0443d3bdaaf65018eee630";
+
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
