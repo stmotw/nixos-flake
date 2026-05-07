@@ -6,7 +6,7 @@
 }: let
   cfg = config.mine.system.stylix;
 
-  # Adaptation of VSCode's Default Dark+ theme
+  # Adaptation of VSCode's Dark+ theme
   darkScheme = {
     base00 = "1E1E1E"; # Editor background
     base01 = "252526"; # Sidebar, menus, tab bar
@@ -26,7 +26,7 @@
     base0F = "D7BA7D"; # Brown (escape chars)
   };
 
-  # Adaptation of VSCode's Default Light+ theme
+  # Adaptation of VSCode's Light+ theme
   lightScheme = {
     base00 = "FFFFFF"; # Editor background
     base01 = "F3F3F3"; # Sidebar, widget backgrounds

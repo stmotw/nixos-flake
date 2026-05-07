@@ -55,8 +55,8 @@ in {
             ];
             "terminal.integrated.scrollback" = 100000;
             "window.autoDetectColorScheme" = true;
-            "workbench.preferredDarkColorTheme" = "Default Dark+";
-            "workbench.preferredLightColorTheme" = "Default Light+";
+            "workbench.preferredDarkColorTheme" = "Dark+";
+            "workbench.preferredLightColorTheme" = "Light+";
             "workbench.startupEditor" = "none";
           };
 
