@@ -11,7 +11,7 @@ in {
     forwardGpgAgent = lib.mkEnableOption "GPG agent forwarding to all hosts";
     hosts = lib.mkOption {
       type = lib.types.attrsOf lib.types.attrs;
-      description = "SSH host configurations (matchBlocks)";
+      description = "SSH host configurations (settings blocks)";
     };
   };
 
@@ -19,10 +19,10 @@ in {
     home-manager.users.${user.username}.programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = lib.mapAttrs (_: hostCfg:
+      settings = lib.mapAttrs (_: hostCfg:
         hostCfg
         // lib.optionalAttrs cfg.forwardGpgAgent {
-          remoteForwards = [
+          RemoteForward = [
             {
               bind.address = "/run/user/1000/gnupg/S.gpg-agent";
               host.address = "/run/user/1000/gnupg/S.gpg-agent.extra";
