@@ -60,6 +60,7 @@ in {
               inherit pkgs sec;
               profiles = ["me" "ai71"];
             };
+          nodejs = enabled;
           ruff = enabled;
           rust = enabled;
           ssh =
