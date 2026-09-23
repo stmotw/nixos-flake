@@ -83,6 +83,7 @@ in {
         _1password = enabled;
         bitwarden = enabled;
         pgadmin = enabled;
+        steam = enabled;
         telegram = enabled;
         yubico-authenticator = enabled;
       };
