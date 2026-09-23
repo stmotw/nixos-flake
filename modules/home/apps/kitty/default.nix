@@ -76,14 +76,14 @@ in {
       # bundles from the store (TCC denies chmod even to root). See modules/shared/system/nix/gc.
       home.activation = lib.optionalAttrs pkgs.stdenv.isDarwin {
         kittyAppManagement = lib.hm.dag.entryAfter ["writeBoundary"] ''
-          marker="$HOME/.local/state/kitty-app-management"
-          if [ "$(cat "$marker" 2>/dev/null)" != "${pkgs.kitty}" ]; then
-            echo "kitty is now ${pkgs.kitty.version}"
-	    echo "re-tick System Settings > Privacy & Security > App Management > kitty"
-	    echo "or nix-collect-garbage will stall on .app store paths"
-            mkdir -p "$(dirname "$marker")"
-            echo "${pkgs.kitty}" > "$marker"
-          fi
+               marker="$HOME/.local/state/kitty-app-management"
+               if [ "$(cat "$marker" 2>/dev/null)" != "${pkgs.kitty}" ]; then
+                 echo "kitty is now ${pkgs.kitty.version}"
+          echo "re-tick System Settings > Privacy & Security > App Management > kitty"
+          echo "or nix-collect-garbage will stall on .app store paths"
+                 mkdir -p "$(dirname "$marker")"
+                 echo "${pkgs.kitty}" > "$marker"
+               fi
         '';
       };
 

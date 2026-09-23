@@ -82,6 +82,7 @@ in {
       apps = {
         _1password = enabled;
         bitwarden = enabled;
+        epic-games = enabled;
         pgadmin = enabled;
         steam = enabled;
         telegram = enabled;
