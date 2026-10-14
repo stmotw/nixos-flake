@@ -30,12 +30,18 @@ in {
         historySubstringSearch.enable = true;
 
         # historySubstringSearch.enable does not set correct keybindings
-        initContent = ''
-          bindkey '^[[A' history-substring-search-up
-          bindkey '^[OA' history-substring-search-up
-          bindkey '^[[B' history-substring-search-down
-          bindkey '^[OB' history-substring-search-down
-        '';
+        initContent = lib.mkMerge [
+          ''
+            bindkey '^[[A' history-substring-search-up
+            bindkey '^[OA' history-substring-search-up
+            bindkey '^[[B' history-substring-search-down
+            bindkey '^[OB' history-substring-search-down
+          ''
+          # Agents assume the stock toolset; Keep unalias after all alias definitions.
+          (lib.mkOrder 1500 ''
+            [[ -n ''${CLAUDECODE-} ]] && unalias -m '*'
+          '')
+        ];
 
         syntaxHighlighting.enable = true;
 
