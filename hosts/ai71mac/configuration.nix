@@ -84,6 +84,7 @@ in {
         bitwarden = enabled;
         epic-games = enabled;
         pgadmin = enabled;
+        seventeenlands = enabled;
         steam = enabled;
         telegram = enabled;
         yubico-authenticator = enabled;
