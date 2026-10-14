@@ -11,6 +11,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    homebrew.brews = ["azure-cli"];
+    homebrew.casks = ["azure-cli"];
   };
 }
