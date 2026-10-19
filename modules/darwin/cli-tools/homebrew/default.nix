@@ -21,6 +21,10 @@ in {
         autoUpdate = true;
         upgrade = true;
         cleanup = "zap";
+        extraEnv = {
+          HOMEBREW_NO_UPDATE_REPORT_NEW = "1";
+          HOMEBREW_NO_ENV_HINTS = "1";
+        };
       };
     };
   };
