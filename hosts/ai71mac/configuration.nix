@@ -39,6 +39,7 @@ in {
       home-manager = {
         apps = {
           kitty = enabled;
+          obsidian = enabled;
           vscode = enabled;
         };
 
