@@ -84,6 +84,7 @@ in {
         _1password = enabled;
         bitwarden = enabled;
         epic-games = enabled;
+        ollama = enabled;
         pgadmin = enabled;
         seventeenlands = enabled;
         steam = enabled;
