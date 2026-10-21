@@ -63,6 +63,7 @@ in {
             };
           nodejs = enabled;
           pi = enabled;
+          qmd = enabled;
           ruff = enabled;
           rust = enabled;
           ssh =
