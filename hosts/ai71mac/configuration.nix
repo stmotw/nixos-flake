@@ -62,6 +62,7 @@ in {
               profiles = ["me" "ai71"];
             };
           nodejs = enabled;
+          pi = enabled;
           ruff = enabled;
           rust = enabled;
           ssh =
