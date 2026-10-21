@@ -140,16 +140,12 @@
 in {
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {
-      home.packages = with pkgs; [
-        starship
-      ];
-
-      stylix.targets.starship.enable = false;
-
       programs.starship = {
         enable = true;
         enableZshIntegration = config.mine.home-manager.system.shell.zsh.enable;
       };
+
+      stylix.targets.starship.enable = false;
 
       xdg.configFile."starship-dark.toml".source = mkStarshipConfig darkColors;
       xdg.configFile."starship-light.toml".source = mkStarshipConfig lightColors;

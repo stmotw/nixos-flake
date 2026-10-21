@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   inherit (config.mine) user;
@@ -13,10 +12,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {
-      home.packages = with pkgs; [
-        direnv
-      ];
-
       programs.direnv = {
         enable = true;
         enableZshIntegration = config.mine.home-manager.system.shell.zsh.enable;

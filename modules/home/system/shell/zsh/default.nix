@@ -13,10 +13,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {
-      home.sessionPath = [
-        "${user.homeDir}/.local/bin"
-      ];
-
       programs.zsh = {
         enable = true;
 
@@ -51,6 +47,10 @@ in {
           rm = "rm -v";
         };
       };
+
+      home.sessionPath = [
+        "${user.homeDir}/.local/bin"
+      ];
     };
   };
 }

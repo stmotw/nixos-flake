@@ -18,17 +18,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {
-      home.packages = with pkgs;
-        [
-          gnupg
-        ]
-        ++ lib.optionals pkgs.stdenv.isDarwin [
-          pinentry_mac
-        ]
-        ++ lib.optionals pkgs.stdenv.isLinux [
-          pinentry-curses
-        ];
-
       programs.gpg = {
         enable = true;
 
@@ -69,6 +58,14 @@ in {
           throw-keyids = true;
         };
       };
+
+      home.packages = with pkgs;
+        lib.optionals pkgs.stdenv.isDarwin [
+          pinentry_mac
+        ]
+        ++ lib.optionals pkgs.stdenv.isLinux [
+          pinentry-curses
+        ];
 
       services.gpg-agent = lib.mkIf cfg.ssh {
         enable = true;

@@ -67,9 +67,14 @@ in {
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {lib, ...}: {
-      home.packages = with pkgs; [
-        kitty
-      ];
+      programs.kitty = {
+        enable = true;
+        shellIntegration.enableZshIntegration = config.mine.home-manager.system.shell.zsh.enable;
+        font = {
+          inherit (config.stylix.fonts.monospace) package name;
+          size = config.stylix.fonts.sizes.terminal;
+        };
+      };
 
       # macOS ties kitty's App Management grant to its ad-hoc code signature, so a kitty update
       # silently revokes it. Without that grant nix-collect-garbage cannot delete launched .app
@@ -88,15 +93,6 @@ in {
       };
 
       stylix.targets.kitty.enable = false;
-
-      programs.kitty = {
-        enable = true;
-        shellIntegration.enableZshIntegration = config.mine.home-manager.system.shell.zsh.enable;
-        font = {
-          inherit (config.stylix.fonts.monospace) package name;
-          size = config.stylix.fonts.sizes.terminal;
-        };
-      };
 
       xdg.configFile."kitty/dark-theme.auto.conf".text = mkKittyColors darkColors;
       xdg.configFile."kitty/light-theme.auto.conf".text = mkKittyColors lightColors;

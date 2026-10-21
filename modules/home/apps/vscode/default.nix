@@ -13,12 +13,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {
-      home.packages = with pkgs; [
-        unstable.vscode
-      ];
-
-      stylix.targets.vscode.enable = false;
-
       programs.vscode = {
         enable = true;
         package = pkgs.unstable.vscode;
@@ -122,6 +116,8 @@ in {
             ];
         };
       };
+
+      stylix.targets.vscode.enable = false;
     };
   };
 }

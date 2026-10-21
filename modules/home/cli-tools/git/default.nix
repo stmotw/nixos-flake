@@ -21,21 +21,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     home-manager.users.${user.username} = {
-      home.packages = with pkgs; [
-        gh
-        git
-        git-crypt
-      ];
-
-      programs.difftastic = {
-        enable = true;
-        git.enable = true;
-        options = {
-          background = "dark";
-          display = "side-by-side";
-        };
-      };
-
       programs.git = {
         enable = true;
 
@@ -62,6 +47,20 @@ in {
         };
 
         includes = cfg.includes;
+      };
+
+      home.packages = with pkgs; [
+        gh
+        git-crypt
+      ];
+
+      programs.difftastic = {
+        enable = true;
+        git.enable = true;
+        options = {
+          background = "dark";
+          display = "side-by-side";
+        };
       };
     };
   };
