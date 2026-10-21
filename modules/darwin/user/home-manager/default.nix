@@ -15,10 +15,14 @@ in {
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
-      extraSpecialArgs = {
-        inherit user;
+      users.${user.username} = {
+        programs.home-manager.enable = true;
+        home = {
+          username = user.username;
+          homeDirectory = user.homeDir;
+          stateVersion = "25.05";
+        };
       };
-      users.${user.username}.imports = [./home.nix];
     };
   };
 }
