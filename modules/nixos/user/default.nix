@@ -16,7 +16,6 @@ in {
 
     users.users.${user.username} = {
       isNormalUser = true;
-      createHome = true;
       uid = 1000;
       openssh.authorizedKeys.keyFiles = [inputs.ssh-keys.outPath];
       group = "${user.username}";
