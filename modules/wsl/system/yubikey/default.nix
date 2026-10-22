@@ -6,7 +6,6 @@
   ...
 }: let
   cfg = config.mine.system.yubikey;
-  usbipd-win-auto-attach = ./auto-attach.sh;
 in {
   options.mine.system.yubikey = {
     autoAttach = lib.mkOption {
@@ -43,7 +42,7 @@ in {
           ip="$(grep nameserver /etc/resolv.conf | cut -d' ' -f2)"
 
           echo "Starting auto attach for busid $busid on $ip."
-          source ${usbipd-win-auto-attach} "$ip" "$busid"
+          source ${./auto-attach.sh} "$ip" "$busid"
         '';
       };
 
