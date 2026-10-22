@@ -15,7 +15,6 @@ in {
     users.knownUsers = ["${user.username}"];
 
     users.users."${user.username}" = {
-      name = "${user.username}";
       home = "/Users/${user.username}";
       isHidden = false;
       uid = 503;
