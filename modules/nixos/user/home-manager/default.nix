@@ -17,7 +17,7 @@ in {
       users.${user.username} = {
         programs.home-manager.enable = true;
         home = {
-          username = user.username;
+          inherit (user) username;
           homeDirectory = user.homeDir;
           stateVersion = "25.05";
         };

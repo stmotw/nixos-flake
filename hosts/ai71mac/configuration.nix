@@ -28,7 +28,7 @@ in {
         enabled
         // sec.users.ai71
         // {
-          homeDir = homeDir;
+          inherit homeDir;
           home-manager = enabled;
           shell = {
             package = pkgs.zsh;
@@ -70,7 +70,7 @@ in {
             enabled
             // {
               forwardGpgAgent = true;
-              hosts = sec.hosts;
+              inherit (sec) hosts;
             };
           uv = enabled;
           zig = enabled;

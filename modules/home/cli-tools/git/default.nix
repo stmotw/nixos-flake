@@ -28,7 +28,7 @@ in {
           user = {
             name = "${user.name}";
             email = "${user.email}";
-            signingKey = cfg.signingKey;
+            inherit (cfg) signingKey;
           };
 
           alias = {
@@ -46,7 +46,7 @@ in {
           push.autoSetupRemote = true;
         };
 
-        includes = cfg.includes;
+        inherit (cfg) includes;
       };
 
       home.packages = with pkgs; [

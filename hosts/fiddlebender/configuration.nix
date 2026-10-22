@@ -37,7 +37,7 @@ in {
         enabled
         // sec.users.me
         // {
-          homeDir = homeDir;
+          inherit homeDir;
           home-manager = enabled;
           shell = {
             package = pkgs.zsh;

@@ -27,6 +27,9 @@ jobs:
       - name: Check for dead Nix code
         run: nix run nixpkgs#deadnix -- --fail .
 
+      - name: Lint Nix code
+        run: nix run nixpkgs#statix -- check .
+
       - name: Check shell scripts
         run: find . -name '*.sh' -type f | xargs --no-run-if-empty nix run nixpkgs#shellcheck --
 

@@ -25,7 +25,7 @@ in {
         enabled
         // sec.users.me
         // {
-          homeDir = homeDir;
+          inherit homeDir;
           home-manager = enabled;
           shell = {
             package = pkgs.zsh;
@@ -56,7 +56,7 @@ in {
             enabled
             // {
               forwardGpgAgent = true;
-              hosts = sec.hosts;
+              inherit (sec) hosts;
             };
           zig = enabled;
           zoxide = enabled;
