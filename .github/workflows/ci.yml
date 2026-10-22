@@ -24,6 +24,9 @@ jobs:
       - name: Check Nix formatting
         run: nix run nixpkgs#alejandra -- --check .
 
+      - name: Check for dead Nix code
+        run: nix run nixpkgs#deadnix -- --fail .
+
       - name: Check shell scripts
         run: find . -name '*.sh' -type f | xargs --no-run-if-empty nix run nixpkgs#shellcheck --
 

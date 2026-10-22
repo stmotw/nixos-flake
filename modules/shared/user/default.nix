@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{lib, ...}: let
   inherit (lib.mine.options) mkOpt;
-  inherit (config.mine) user;
 in {
   options.mine.user = {
     enable = lib.mkEnableOption "Enable user";

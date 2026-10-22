@@ -11,7 +11,7 @@
 
   files = dir:
     lib.collect lib.isString (
-      lib.mapAttrsRecursive (path: type: lib.concatStringsSep "/" path) (getDir dir)
+      lib.mapAttrsRecursive (path: _type: lib.concatStringsSep "/" path) (getDir dir)
     );
 in {
   ## Recursively list all `default.nix` files in directory

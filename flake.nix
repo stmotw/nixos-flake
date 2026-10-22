@@ -49,11 +49,10 @@
   outputs = {
     nixpkgs,
     nix-darwin,
-    self,
     ...
   } @ inputs: let
     # Import custom lib functions under lib.mine
-    lib = nixpkgs.lib.extend (final: prev: {
+    lib = nixpkgs.lib.extend (final: _prev: {
       mine = import ./lib {lib = final;};
     });
 

@@ -4,7 +4,6 @@
   pkgs,
   ...
 }: let
-  inherit (config.mine) user;
   cfg = config.mine.system.defaults;
 in {
   options.mine.system.defaults = {

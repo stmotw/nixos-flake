@@ -7,6 +7,7 @@
   cfg = config.mine.system.utils;
   dev = with pkgs; [
     alejandra
+    deadnix
     glow
     jq
     shellcheck
