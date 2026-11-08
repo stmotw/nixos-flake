@@ -62,7 +62,7 @@ in {
               profiles = ["me" "ai71"];
             };
           nodejs = enabled;
-          pi = enabled;
+          omp = enabled;
           qmd = enabled;
           ruff = enabled;
           rust = enabled;
@@ -105,6 +105,7 @@ in {
         just = enabled;
         make = enabled;
         homebrew = enabled;
+        terraform = enabled;
       };
 
       services = {

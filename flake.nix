@@ -30,9 +30,10 @@
       flake = false;
     };
 
-    stylix = {
-      url = "github:danth/stylix/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+    omp = {
+      url = "github:can1357/oh-my-pi";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.rust-overlay.follows = "rust-overlay";
     };
 
     qmd = {
@@ -42,6 +43,11 @@
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
