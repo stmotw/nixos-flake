@@ -85,6 +85,7 @@ in {
       apps = {
         _1password = enabled;
         bitwarden = enabled;
+        cloudflare-warp = enabled;
         epic-games = enabled;
         ollama = enabled;
         pgadmin = enabled;
